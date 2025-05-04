@@ -1,0 +1,24 @@
+# UE4 folders to ignore
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+*.VC.db
+*.suo
+*.opensdf
+*.sdf
+*.ipch/
+.vscode/
+.vs/
+*.xcodeproj
+*.xcworkspace
+*.xcuserstate
+*.sln
+
+# Сompiled files
+*.pdb
+*.exe
+*.dll
+*.app
+*.dylib
+*.so
