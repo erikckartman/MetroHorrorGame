@@ -19,4 +19,7 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Inventory")
 	void RemoveItem(UItem* itemToRemove);
+
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	void CheckInventory();
 };

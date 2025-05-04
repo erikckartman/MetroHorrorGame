@@ -8,7 +8,7 @@
 #include "Item.generated.h"
 
 UCLASS(BlueprintType)
-class METROHORROR_API UItem : public UObject
+class METROHORROR_API UItem : public UPrimaryDataAsset
 {
 	GENERATED_BODY()
 	
