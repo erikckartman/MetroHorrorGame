@@ -16,9 +16,6 @@ void UInventory::RemoveItem(UItem* itemToRemove) {
 void UInventory::CheckInventory() {
 	for (UItem* oneItem : Items)
 	{
-		if (oneItem)
-		{
-			UE_LOG(LogTemp, Log, TEXT("Item: %s"), *oneItem->ItemName.ToString());
-		}
+		UE_LOG(LogTemp, Log, TEXT("Item: %s"), *oneItem->ItemName.ToString());
 	}
 }
