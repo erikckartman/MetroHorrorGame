@@ -19,3 +19,7 @@ void UInventory::CheckInventory() {
 		UE_LOG(LogTemp, Log, TEXT("Item: %s"), *oneItem->ItemName.ToString());
 	}
 }
+
+void UInventory::SelectItem(int32 itemIndex) {
+	ActiveItem = Items[itemIndex];
+}

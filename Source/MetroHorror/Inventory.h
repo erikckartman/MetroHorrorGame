@@ -14,6 +14,9 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Inventory")
 	TArray<UItem*> Items;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Inventory")
+	UItem* ActiveItem;
+
 	UFUNCTION(BlueprintCallable, Category = "Inventory")
 	void AddItem(UItem* itemToAdd);
 
@@ -22,4 +25,7 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Inventory")
 	void CheckInventory();
+
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	void SelectItem(int32 itemIndex);
 };
