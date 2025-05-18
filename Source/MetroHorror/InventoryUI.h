@@ -23,5 +23,7 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory")
 	UTexture2D* DefaultIcon;
-};
 
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	void UpdateIcons();
+};
