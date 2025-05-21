@@ -2,11 +2,11 @@
 
 #include "CoreMinimal.h" 
 #include "Blueprint/UserWidget.h" 
-#include "Components/Image.h" 
+#include "Components/Button.h"
 #include "Item.h"
 #include "InventoryUI.generated.h"
 
-class UImage;
+class UButton;
 class UInventory;
 
 UCLASS()
@@ -19,7 +19,7 @@ public:
 	UInventory* InventoryRef;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidgetOptional))
-	TArray<UImage*> Slots;
+	TArray<UButton*> Slots;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory")
 	UTexture2D* DefaultIcon;

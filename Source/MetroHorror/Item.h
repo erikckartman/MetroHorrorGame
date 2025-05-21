@@ -20,6 +20,6 @@ public:
     UTexture2D* ItemIcon;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item")
-    UStaticMesh* ItemMesh;
+    TSubclassOf<AActor> ItemMesh;
 
 };

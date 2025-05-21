@@ -1,4 +1,8 @@
 #include "Inventory.h"
+#include "GameFramework/Character.h"
+#include "Kismet/GameplayStatics.h"
+#include "Engine/World.h"
+#include "Item.h"
 
 void UInventory::AddItem(UItem* itemToAdd) {
 	if (itemToAdd) {
@@ -7,9 +11,30 @@ void UInventory::AddItem(UItem* itemToAdd) {
 	}
 }
 
-void UInventory::RemoveItem(UItem* itemToRemove) {
-	if (Items.Contains(itemToRemove)) {
-		Items.Remove(itemToRemove);
+void UInventory::RemoveItem(int32 itemIndex) {
+	UItem* ItemToDrop = Items[itemIndex];
+	
+	if (!ItemToDrop || !ItemToDrop->ItemMesh) return;
+	
+	FVector PlayerLocation = PlayerBP->GetActorLocation();
+	FRotator PlayerRotation = PlayerBP->GetActorRotation();
+
+	FVector ForwardVector = PlayerBP->GetActorForwardVector();
+	FVector SpawnLocation = PlayerLocation + ForwardVector * 100.f;
+
+	FActorSpawnParameters SpawnParams;
+	SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
+
+	AActor* DroppedActor = PlayerBP->GetWorld()->SpawnActor<AActor>(
+		ItemToDrop->ItemMesh,
+		SpawnLocation,
+		PlayerRotation,
+		SpawnParams
+	);
+
+	if (DroppedActor) {
+		UE_LOG(LogTemp, Warning, TEXT("Dropped item: %s"), *ItemToDrop->ItemName.ToString());
+		Items.RemoveAt(itemIndex);
 	}
 }
 
